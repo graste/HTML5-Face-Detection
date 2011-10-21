@@ -6,6 +6,13 @@ var		video = document.querySelector('video'),
 		ctx = canvas.getContext("2d");
 		glasses.src = "i/glasses.png";
 
+// open canvas images as data URI in new window
+canvas.addEventListener('click', function() {
+    var datauri = this.toDataURL("image/png");
+    window.open(datauri);
+}, true);
+
+// enable camera support for video element
 if (navigator.getUserMedia) {
     navigator.getUserMedia('video', successCallback, errorCallback);
     function successCallback(stream) {
@@ -17,6 +24,9 @@ if (navigator.getUserMedia) {
         alert('An error occurred while trying to get camera access: ' + error.code);
 	return;
     }
+}
+else {
+    alert('This demo is a quick and dirty try to get camera support with an HTML5 video element working. You are unfortunately using a browser that does not support getUserMedia method.');
 }
 
 function html5glasses() {
