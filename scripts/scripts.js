@@ -14,16 +14,13 @@ canvas.addEventListener('click', function() {
 
 // enable camera support for video element
 if (navigator.getUserMedia) {
-    navigator.getUserMedia('video', successCallback, errorCallback);
-    function successCallback(stream) {
+    navigator.getUserMedia('video', function(stream) {
         alert('yeah! camera support!');
         video.src = stream;
         vidInterval = setInterval(html5glasses, 200);
-    }
-    function errorCallback(error) {
+    }, function(error) {
         alert('An error occurred while trying to get camera access: ' + error.code);
-	return;
-    }
+    });
 }
 else {
     alert('This demo is a quick and dirty try to get camera support with an HTML5 video element working. You are unfortunately using a browser that does not support getUserMedia method.');
@@ -55,15 +52,3 @@ function html5glasses() {
 		ctx.drawImage(glasses, comp[i].x, comp[i].y,comp[i].width, comp[i].height);
 	}
 }
-
-/* Events */ 
-/*
-video.addEventListener('play', function() {
-	vidInterval = setInterval(html5glasses,200); 
-});
-
-video.addEventListener('ended', function() {
-	clearInterval(vidInterval);
-	time_dump.innerHTML = "finished";
-});
-*/
