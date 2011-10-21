@@ -6,6 +6,8 @@ Try the local index.html file on a browser with getUserMedia support. E.g. Opera
 
 Enable "Allow Camera To Canvas Copy" setting in via opera:config page: opera:config#SecurityPrefs|AllowCameraToCanvasCopy 
 
+Click your new nose to export the image to a new window as PNG via Data URI. :-)
+
 More information and several demos on the getUserMedia support of the Opera build: http://dev.opera.com/articles/view/playing-with-html5-video-and-getusermedia-support/
 
 --------------------------------------------------------------------------------
